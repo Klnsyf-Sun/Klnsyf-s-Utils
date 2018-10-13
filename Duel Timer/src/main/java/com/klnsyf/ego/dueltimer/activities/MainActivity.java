@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (((EditText) findViewById(R.id.totalTime)).getText().length() != 0) {
-                    totalTime = Integer.parseInt(((EditText) findViewById(R.id.totalTime)).getText().toString());
+                    totalTime = Long.parseLong(((EditText) findViewById(R.id.totalTime)).getText().toString());
                     startTime = 7734;
                     handler.removeCallbacks(timerThread);
                     initMediaPlayer();
@@ -98,12 +98,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String milliSecond2TimeString(long totalMilliSecond) {
-        int hour = (int) totalMilliSecond / 1000 / 60 / 60;
+        long hour =  totalMilliSecond / 1000 / 60 / 60;
         int minute = (int) (totalMilliSecond - hour * 60 * 60 * 1000) / 1000 / 60;
         int second = (int) (totalMilliSecond - hour * 60 * 60 * 1000 - minute * 60 * 1000) / 1000;
-        int milliSecond = (int) totalMilliSecond - hour * 60 * 60 * 1000 - minute * 60 * 1000 - second * 1000;
+        int milliSecond = (int) (totalMilliSecond - hour * 60 * 60 * 1000 - minute * 60 * 1000 - second * 1000);
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append(hour < 10 ? 0 : null).append(hour).append(":").append(minute < 10 ? 0 : "").append(minute).append(":").append(second < 10 ? 0 : "").append(second).append(".").append(milliSecond < 100 ? 0 : "").append(milliSecond < 10 ? 0 : "").append(milliSecond);
+        stringBuffer.append(hour < 10 ? 0 : "").append(hour).append(":").append(minute < 10 ? 0 : "").append(minute).append(":").append(second < 10 ? 0 : "").append(second).append(".").append(milliSecond < 100 ? 0 : "").append(milliSecond < 10 ? 0 : "").append(milliSecond);
         return stringBuffer.toString();
     }
 
