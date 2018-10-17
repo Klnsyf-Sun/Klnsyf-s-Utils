@@ -33,24 +33,45 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:id="@+id/timeTop"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:rotation="180"
-                    android:text="00:00:00.000"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textSize="32sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toTopOf="@+id/divider"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical"
+                    android:rotation="180">
+
+                    <TextView
+                        android:id="@+id/timeTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="00:00:00.000"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="36sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/divider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/totalTimeTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="00:00:00.000"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="24sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toTopOf="@+id/divider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
                 <ProgressBar
                     android:id="@+id/progressBarTop"
@@ -70,6 +91,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/roundTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:rotation="180"
+                android:text="Round 00"
+                android:textAlignment="center"
+                android:textSize="24sp" />
 
             <Space
                 android:layout_width="match_parent"
@@ -92,6 +122,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.05" />
 
+            <TextView
+                android:id="@+id/roundBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Round 00"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -113,20 +151,41 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/timeBottom" />
 
-                <TextView
-                    android:id="@+id/timeBottom"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="00:00:00.000"
-                    android:textAlignment="center"
-                    android:textAllCaps="false"
-                    android:textSize="32sp"
-                    android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/timeBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="00:00:00.000"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="36sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                    <TextView
+                        android:id="@+id/totalTimeBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif"
+                        android:text="00:00:00.000"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textSize="24sp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
+                </LinearLayout>
 
                 <Space
                     android:layout_width="match_parent"
@@ -158,6 +217,7 @@
                 android:ems="10"
                 android:hint="Total Time (MilliSeconds)"
                 android:inputType="number"
+                android:maxLength="18"
                 android:textAlignment="center"
                 android:textSize="32sp"
                 android:visibility="visible"
